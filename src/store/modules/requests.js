@@ -42,8 +42,9 @@ export default {
     },
     async fetchRequests(context) {
       const coachId = context.rootGetters.userId;
+      const token = context.rootGetters.token;
       const response = await fetch(
-        `https://udemy-vue-1defa-default-rtdb.europe-west1.firebasedatabase.app/requests/${coachId}.json`
+        `https://udemy-vue-1defa-default-rtdb.europe-west1.firebasedatabase.app/requests/${coachId}.json?auth=${token}`
       );
 
       const resData = await response.json();
